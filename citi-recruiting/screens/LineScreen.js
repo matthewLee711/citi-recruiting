@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
 
@@ -10,22 +10,25 @@ export default class LinksScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <ScrollView style={styles.container}>
-          {/* Go ahead and delete ExpoLinksView and replace it with your
-            * content, we just wanted to provide you with some helpful links */}
-          <ExpoLinksView />
-        </ScrollView>
+      <View style={styles.container}>
 
         <Button
           icon={{
             name: 'arrow-upward',
             size: 15,
-            color: 'blue'
+            color: 'red'
           }}
           title='I AM A BUTTON'
+          buttonStyle={{
+            backgroundColor: "rgba(92, 99,216, 1)",
+            width: 300,
+            height: 45,
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5
+          }}
         />
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -33,6 +36,8 @@ export default class LinksScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingTop: 15,
     backgroundColor: '#fff',
   },
