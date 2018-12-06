@@ -5,7 +5,11 @@ import { Button } from 'react-native-elements';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Come Visit Us!',
+    title: 'Digital Line',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#4169E1',
+    }
   };
 
   render() {
@@ -14,21 +18,39 @@ export default class LinksScreen extends React.Component {
 
         <Button
           icon={{
-            name: 'arrow-upward',
+            name: 'person-add',
             size: 15,
-            color: 'red'
+            color: '#EF1C24'
           }}
-          title='I AM A BUTTON'
+          title='Reserve Next Available Spot'
           buttonStyle={{
-            backgroundColor: "rgba(92, 99,216, 1)",
-            width: 300,
-            height: 45,
+            backgroundColor: "#1B2351",
+            width: 270,
+            height: 75,
             borderColor: "transparent",
             borderWidth: 0,
             borderRadius: 5
           }}
         />
-      </View>
+
+       <Button
+          icon={{
+            name: 'timer',
+            size: 15,
+            color: '#EF1C24'
+          }}
+          title='Reserve Spot for Later'
+          buttonStyle={{
+            backgroundColor: "#1B2351",
+            width: 270,
+            height: 75,
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5,
+            marginTop: 50
+          }}
+        />
+      </View> 
     );
   }
 }
@@ -39,6 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: '#DCDCDC',
   },
 });
