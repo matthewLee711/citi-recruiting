@@ -1,10 +1,36 @@
+const { addUserToLine, getUserFromLine } = require('../services/RecruitService');
+
 // Async get request 
 exports.helloWorldAsync = async(req, res, next) => {
   res.status(200).send('Hello World');
 }
 
 // Hello world get request
-exports.getLineNumber = (req, res) => {
+exports.getUserLineInfo = async(req, res) => {
+  res.status(200).send('Hello World');
+}
+
+exports.addStudentToLine = async(req, res) => {
+  var user = req.body.user;
+  var status = await addUserToLine(user);
+  if(status === true) {
+    res.status(200).send('Success');
+  } else {
+    res.status(500).send('Fail');
+  }
+}
+
+exports.removeUserFromLine = async(req, res) => {
+  var user = req.body.user;
+  var status = await addUserToLine(user);
+  if(status === true) {
+    res.status(200).send('Success');
+  } else {
+    res.status(500).send('Fail');
+  }
+}
+
+exports.getLineNumber = async(req, res) => {
   res.status(200).send('Hello World');
 }
 
