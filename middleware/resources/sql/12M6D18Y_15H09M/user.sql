@@ -4,8 +4,9 @@ CREATE TABLE users (
   id serial NOT NULL,
   userid VARCHAR(128),
   interviewed BOOLEAN,
-  queuenumber NUMBER,
+  queuenumber INT,
+  createdate TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   scheduledtime TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
-INSERT INTO users (userid, upassword, interviewed, scheduledtime) VALUES ('bob@gmail.com', 'password', current_timestamp);
+INSERT INTO users (userid, interviewed, queuenumber, createdate, scheduledtime) VALUES ('bob', FALSE, 5, current_timestamp, current_timestamp);

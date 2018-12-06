@@ -1,4 +1,4 @@
-const { addUserToLine, getUserFromLine } = require('../services/RecruitService');
+const { addUserToLine, getUserFromLine } = require('../services/RecruiteeService');
 
 // Async get request 
 exports.helloWorldAsync = async(req, res, next) => {
@@ -7,8 +7,16 @@ exports.helloWorldAsync = async(req, res, next) => {
 
 // Hello world get request
 exports.getUserLineInfo = async(req, res) => {
-  res.status(200).send('Hello World');
+  var data = await getUserFromLine('bob');
+  res.status(200).send(data);
 }
+
+// {
+//   userid: "",
+//   interviewed: "",
+//   queuenumber: "",
+//   scheduledtime:""
+// }
 
 exports.addStudentToLine = async(req, res) => {
   var user = req.body.user;

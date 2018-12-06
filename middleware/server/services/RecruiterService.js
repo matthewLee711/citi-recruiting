@@ -6,7 +6,7 @@ async function getUserAccount(email) {
 }
 
 async function addUserToLine(student) {
-  var emailAvailable = await useridExists(student.email);
+  var emailAvailable = await userAlreadyScheduledCheck(student.email);
 
   // Get queue number
   if (!emailAvailable) {
@@ -23,9 +23,8 @@ async function addUserToLine(student) {
 }
 
 async function getUserFromLine(student) {
-  client.hget('user', 'bob');
-  const result = await isUserEligible('bob');
-  return result;
+  console.log("userid: ", student)
+  return Users.findOne({ where: { userid: student }});
 }
 
 async function deleteUserFromLine(student) {
@@ -34,11 +33,11 @@ async function deleteUserFromLine(student) {
   console.log(result);
 }
 
-async function useridExists(email) {
-  // Dynamic username + emailchecking?
+async function userAlreadyScheduledCheck(userid) {
+  // Dynamic username + useridchecking?
   var res = await Users.findOne({ 
-    attributes: ['email'],
-    where: { email: email }
+    attributes: ['userid'],
+    where: { userid: userid }
   });
 
   if(res === null) {

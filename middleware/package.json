@@ -10,7 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "redis": "^2.8.0"
+    "moment": "^2.22.2",
+    "pg": "^7.7.1",
+    "pg-hstore": "^2.3.2",
+    "redis": "^2.8.0",
+    "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.7"
