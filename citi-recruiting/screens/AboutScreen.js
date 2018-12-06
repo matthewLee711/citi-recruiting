@@ -33,33 +33,19 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+            <Text>About Us</Text>
 
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
 
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
+            <Text>
+              Citi is a global bank with reach in more than 120 countries. However, Citi's interests stretch beyond just banking. There is a deep investment in technology between the security to keep everyone's finances safe to incubator programs to drive innovation. Within the analyst program, graduates and interns are given many opportunities such as rotating to new teams and participating in hackathons. Keep reading to learn more about some of the work our analysts have done. 
             </Text>
           </View>
 
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
+          
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
+        
       </View>
     );
   }
