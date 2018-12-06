@@ -3,7 +3,6 @@
 CREATE TABLE users (
   id serial NOT NULL,
   userid VARCHAR(128),
-  upassword TEXT,
   interviewed BOOLEAN,
   queuenumber NUMBER,
   scheduledtime TIMESTAMP WITH TIME ZONE DEFAULT NOW()
