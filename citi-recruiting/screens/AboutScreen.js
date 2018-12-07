@@ -37,18 +37,18 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.header}>About Us</Text>
 
 
-            <Text>
+            <Text style={{marginBottom:20}}>
               Citi is a global bank with reach in more than 120 countries. However, Citi's interests stretch beyond just banking. There is a deep investment in technology between the security to keep everyone's finances safe to incubator programs to drive innovation. Within the analyst program, graduates and interns are given many opportunities such as rotating to new teams and participating in hackathons. Keep reading to learn more about some of the work our analysts have done. 
             </Text>
 
-            <Text style={styles.header}>Our Analysts</Text>
+            <Text style={styles.header}>Our Engineers</Text>
             <Image
               source={
                 __DEV__
                   ? require ('../assets/images/nick.jpg')
                   : require ('../assets/images/robot-prod.png')
               }
-              style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
+              style={{width:100, height:100, resizeMode:'contain',marginTop:10}}
             />
             <Text style={{fontSize:20, fontWeight:'bold'}}>Nick Bailey</Text>
             <Text>Nick graduated from Harvey Mudd College in 2017 with a joint degree in Computer Science and Mathematics. He spent his first rotation with the CitiSystems platform learning about container technologies including Docker and Kubernetes/Openshift, as well as automating the deployment and migration of container clusters. He is currently on his second rotation with the Hybrid Cloud CitiSecure team focusing on architecting highly available Next Generation Firewall technologies, automating VLan creation, and certifying user-ID based firewall rules for Amazon/Google cloud platforms.</Text>
@@ -71,7 +71,27 @@ export default class HomeScreen extends React.Component {
               style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
             />
             <Text style={{fontSize:20, fontWeight:'bold'}}>David Kim</Text>
-            <Text>David Kim is an SMU, Class of 2017, graduate and a CATE 2017 full-time analyst who is completing his first rotation in the CitiDeveloper Platform. There, he has worked on expanding automation efforts for onboarding users into newer technologies such as Artifactory and Cloudbees Jenkins, which have both replaced applications that are more than 10 years old.  These two applications are critical components of Citi's containerization strategy as two major portions of the CI/CD pipeline. For David’s second year in the program he will soon rotate to the CitiData platform where he will be aligned to the database automation team. This will allow him to contribute to innovations with NoSQL database technologies like MongoDB.</Text>
+            <Text style={{marginBottom:20}}>David Kim is an SMU, Class of 2017, graduate and a CATE 2017 full-time analyst who is completing his first rotation in the CitiDeveloper Platform. There, he has worked on expanding automation efforts for onboarding users into newer technologies such as Artifactory and Cloudbees Jenkins, which have both replaced applications that are more than 10 years old.  These two applications are critical components of Citi's containerization strategy as two major portions of the CI/CD pipeline. For David’s second year in the program he will soon rotate to the CitiData platform where he will be aligned to the database automation team. This will allow him to contribute to innovations with NoSQL database technologies like MongoDB.</Text>
+          
+            <Text style={styles.header}>Our Culture</Text>
+            
+            <Text>Citi has a culture of constant learning. Whether an intern or seasoned professional, everyone is encouraged to grow and shape their career. Analysts are given training and experience leading. They work in an open seating environment that drives collaboration. Managers and mentors are excited to answer any and all questions, creating long-lasting relationships. Activities such as training in New York and hackathons are more than just fun, allowing deep bonds to form between the analysts.</Text>
+          <Image
+              source={
+                __DEV__
+                  ? require ('../assets/images/hive.jpg')
+                  : require ('../assets/images/robot-prod.png')
+              }
+              style={{width:300, height:250, resizeMode:'contain'}}
+            />
+            <Image
+              source={
+                __DEV__
+                  ? require ('../assets/images/hackathon.jpg')
+                  : require ('../assets/images/robot-prod.png')
+              }
+              style={{width:300, height:250, resizeMode:'contain',marginBottom:20}}
+            />
           </View>
 
           
