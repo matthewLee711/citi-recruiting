@@ -1,9 +1,11 @@
+'use strict';
 import React from 'react';
 import { Alert, Image, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
 
-export default class LinksScreen extends React.Component {
+export default class SettingsScreen extends React.Component {
+
   static navigationOptions = {
     header: null,
     // title: 'Digital Line',
@@ -25,15 +27,7 @@ export default class LinksScreen extends React.Component {
             }
             style={styles.welcomeImage}
           />
-      </View>
-      <Text style={{fontSize:30, fontWeight:'bold', marginBottom:20}}>Resume Match</Text>
-        <Text style={{fontSize:20}}>
-          Let us match you to a platform at Citi! 
-        </Text>
-
-        <Text style={{fontSize:10}}>
-          Just take a picture of your resume to learn more.
-        </Text>
+        </View>
   
         <Button
           icon={{
@@ -56,12 +50,21 @@ export default class LinksScreen extends React.Component {
           }}
         />
 
-       
 
-      </View> 
-    );
-  }
+      <View style={{marginHorizontal: 50,alignItems:'center'}}>
+      <Text style={{fontSize:30, fontWeight:'bold',}}>Resume Match</Text>
+      <Text>Let us match you to a platform at Citi!</Text>
+      <Text>Just take a picture of your resume to learn more.</Text>
+      </View>
+      
+    </View>
+  );
 }
+
+
+		
+			 
+
 
 const styles = StyleSheet.create({
   welcomeContainer: {
