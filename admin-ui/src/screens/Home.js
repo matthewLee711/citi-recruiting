@@ -17,7 +17,7 @@ export default class Home extends Component {
     this.getRedisInfo = this.getRedisInfo.bind(this);
     this.initRecruiting = this.initRecruiting.bind(this);
     this.getNextUserByQueueID = this.getNextUserByQueueID.bind(this);
-    this.endInterview = this.endInterview.bind(this);
+    // this.endInterview = this.endInterview.bind(this);
     this.getAllUsers = this.getAllUsers.bind(this);
 
 
