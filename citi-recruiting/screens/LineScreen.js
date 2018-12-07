@@ -17,16 +17,21 @@ export default class LinksScreen extends React.Component {
   constructor(props) {
     super(props);
     this.addUserInLine = this.addUserInLine.bind(this);
+    this.state = { message: '' };
   }
 
 
   addUserInLine() {
-    axios.post(`http://10.0.2.2:3001/adduser`, {
+    axios.post(`http://172.20.10.4:3001/adduser`, {
      userid: 'John1'
     })
    .then(res => {
      console.log(res);
+     this.setState({ message: 'Successfully added to line!' });
    })
+   .catch(res => {
+     this.setState({ message: 'Error adding you to line, that sucks!' });
+     });
   }
 
 
@@ -66,6 +71,12 @@ export default class LinksScreen extends React.Component {
           }}
           onPress={this.addUserInLine}
         />
+
+        {
+          this.state.message ? 
+            <Text>{this.state.message}</Text>
+            : <Text></Text> 
+          }
 
        
 
