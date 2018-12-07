@@ -3,18 +3,39 @@ import React from 'react';
 import { Alert, Image, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
-import ImagePicker from 'react-native-image-picker';
+import { ImagePicker } from 'expo';
+
+
 
 export default class SettingsScreen extends React.Component {
 
   static navigationOptions = {
-    header: null,
-    // title: 'Digital Line',
-    // headerTintColor: '#ffffff',
-    // headerStyle: {
-    //   backgroundColor: '#4169E1',
-    // }
+    header: null
   };
+
+  state = {
+    pickedImage: null
+  }
+
+  _pickImage = async () => {
+    const { Permissions } = Expo;
+    const {status} = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    console.info('status = ' + JSON.stringify(status));
+    if (status === 'granted') {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+      });
+
+      console.log(result);
+
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+    }
+  };
+
+
 
   render() {
     return (
@@ -38,7 +59,7 @@ export default class SettingsScreen extends React.Component {
   
         <Button
           icon={{
-            name: 'person-add',
+            name: 'image',
             size: 15,
             color: '#EF1C24'
           }}
@@ -52,10 +73,8 @@ export default class SettingsScreen extends React.Component {
             borderRadius: 5,
             marginTop: 50
           }}
-          onPress={() => {
-            Alert.alert('You tapped the button!');
-          }}
-        />
+          onPress={this._pickImage}
+	/>
 
       </View>
     );
