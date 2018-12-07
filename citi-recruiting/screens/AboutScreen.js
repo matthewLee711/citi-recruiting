@@ -42,7 +42,36 @@ export default class HomeScreen extends React.Component {
             </Text>
 
             <Text style={styles.header}>Our Analysts</Text>
-            <Text>Wow, so many cool people and pictures of those people! </Text>
+            <Image
+              source={
+                __DEV__
+                  ? require ('../assets/images/nick.jpg')
+                  : require ('../assets/images/robot-prod.png')
+              }
+              style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
+            />
+            <Text style={{fontSize:20, fontWeight:'bold'}}>Nick Bailey</Text>
+            <Text>Nick graduated from Harvey Mudd College in 2017 with a joint degree in Computer Science and Mathematics. He spent his first rotation with the CitiSystems platform learning about container technologies including Docker and Kubernetes/Openshift, as well as automating the deployment and migration of container clusters. He is currently on his second rotation with the Hybrid Cloud CitiSecure team focusing on architecting highly available Next Generation Firewall technologies, automating VLan creation, and certifying user-ID based firewall rules for Amazon/Google cloud platforms.</Text>
+            <Image
+              source={
+                __DEV__
+                  ? require ('../assets/images/arianna.jpg')
+                  : require ('../assets/images/robot-prod.png')
+              }
+              style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
+            />
+            <Text style={{fontSize:20, fontWeight:'bold'}}>Arianna Mahan</Text>
+            <Text>Arianna graduated from the University of Texas at Austin in 2018 with a degree in Computer Science. She is still on her first rotation with the CitiUser platform where she tests new technologies to certify them for everyone at Citi to use. This includes new desktops and laptops as well as software such as Microsoft Office and patches that roll out monthly.</Text>
+          <Image
+              source={
+                __DEV__
+                  ? require ('../assets/images/david.png')
+                  : require ('../assets/images/robot-prod.png')
+              }
+              style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
+            />
+            <Text style={{fontSize:20, fontWeight:'bold'}}>David Kim</Text>
+            <Text>David Kim is an SMU, Class of 2017, graduate and a CATE 2017 full-time analyst who is completing his first rotation in the CitiDeveloper Platform. There, he has worked on expanding automation efforts for onboarding users into newer technologies such as Artifactory and Cloudbees Jenkins, which have both replaced applications that are more than 10 years old.  These two applications are critical components of Citi's containerization strategy as two major portions of the CI/CD pipeline. For David’s second year in the program he will soon rotate to the CitiData platform where he will be aligned to the database automation team. This will allow him to contribute to innovations with NoSQL database technologies like MongoDB.</Text>
           </View>
 
           
@@ -53,38 +82,7 @@ export default class HomeScreen extends React.Component {
     );
   }
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
+  
 }
 
 const styles = StyleSheet.create({
