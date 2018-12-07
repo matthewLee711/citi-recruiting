@@ -25,7 +25,7 @@ export default class HomeScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/citi.jpeg')
+                  ? require('../assets/images/crb-banner.jpg')
                   : require('../assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
@@ -34,12 +34,15 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.getStartedContainer}>
 
-            <Text>About Us</Text>
+            <Text style={styles.header}>About Us</Text>
 
 
             <Text>
               Citi is a global bank with reach in more than 120 countries. However, Citi's interests stretch beyond just banking. There is a deep investment in technology between the security to keep everyone's finances safe to incubator programs to drive innovation. Within the analyst program, graduates and interns are given many opportunities such as rotating to new teams and participating in hackathons. Keep reading to learn more about some of the work our analysts have done. 
             </Text>
+
+            <Text style={styles.header}>Our Analysts</Text>
+            <Text>Wow, so many cool people and pictures of those people! </Text>
           </View>
 
           
@@ -87,7 +90,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#DCDCDC',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -97,19 +100,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 0,
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 0,
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 500,
+    height: 130,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+    marginTop: 0,
+    marginLeft: 0,
   },
   getStartedContainer: {
     alignItems: 'center',
@@ -170,5 +173,9 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  header: {
+    fontSize:30,
+    fontWeight:'bold',
   },
 });
