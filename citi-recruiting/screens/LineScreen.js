@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
+import axios from 'axios';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
@@ -12,6 +13,22 @@ export default class LinksScreen extends React.Component {
     //   backgroundColor: '#4169E1',
     // }
   };
+
+  constructor(props) {
+    super(props);
+    this.addUserInLine = this.addUserInLine.bind(this);
+  }
+
+
+  addUserInLine() {
+    axios.post(`http://10.0.2.2:3001/adduser`, {
+     userid: 'John1'
+    })
+   .then(res => {
+     console.log(res);
+   })
+  }
+
 
   render() {
     return (
@@ -47,6 +64,7 @@ export default class LinksScreen extends React.Component {
             borderRadius: 5,
             marginTop: 50
           }}
+          onPress={this.addUserInLine}
         />
 
        
