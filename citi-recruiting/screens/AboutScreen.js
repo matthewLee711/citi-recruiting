@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.header}>About Us</Text>
 
 
-            <Text>
+            <Text style={{marginBottom:20}}>
               Citi is a global bank with reach in more than 120 countries. However, Citi's interests stretch beyond just banking. There is a deep investment in technology between the security to keep everyone's finances safe to incubator programs to drive innovation. Within the analyst program, graduates and interns are given many opportunities such as rotating to new teams and participating in hackathons. Keep reading to learn more about some of the work our analysts have done. 
             </Text>
 
@@ -48,7 +48,7 @@ export default class HomeScreen extends React.Component {
                   ? require ('../assets/images/nick.jpg')
                   : require ('../assets/images/robot-prod.png')
               }
-              style={{width:100, height:100, resizeMode:'contain',marginTop:20}}
+              style={{width:100, height:100, resizeMode:'contain',marginTop:10}}
             />
             <Text style={{fontSize:20, fontWeight:'bold'}}>Nick Bailey</Text>
             <Text>Nick graduated from Harvey Mudd College in 2017 with a joint degree in Computer Science and Mathematics. He spent his first rotation with the CitiSystems platform learning about container technologies including Docker and Kubernetes/Openshift, as well as automating the deployment and migration of container clusters. He is currently on his second rotation with the Hybrid Cloud CitiSecure team focusing on architecting highly available Next Generation Firewall technologies, automating VLan creation, and certifying user-ID based firewall rules for Amazon/Google cloud platforms.</Text>
