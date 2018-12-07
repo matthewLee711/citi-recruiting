@@ -1,5 +1,11 @@
 const Users = require('../models').users;
 const moment = require('moment');
+const util = require('util');
+const client = require('./redis-client');
+client.get = util.promisify(client.get);
+client.hget = util.promisify(client.hget);
+client.hmget = util.promisify(client.hmget);
+client.hdel = util.promisify(client.hdel);
 // {
 //   userid: "",
 //   interviewed: "",
@@ -8,20 +14,32 @@ const moment = require('moment');
 // }
 
 async function addUserToLine(student) {
-  var emailAvailable = await userAlreadyScheduledCheck(student.email);
-  const joinTime = moment().unix();
+  var userScheduled = await checkUserAlreadyScheduled(student.userid);
+  var queueNumber = await generateQueueNumber();
+  // const joinTime = moment().unix();
   // Get queue number
-  if (!emailAvailable) {
+  if (!userScheduled) {
     return Users.create({
-      userid: student.email,
+      userid: student.userid,
       interviewed: false,
-      queuenumber: 5,
-      scheduledtime: joinTime
+      queuenumber: queueNumber
     });
   } else {
     console.log('Already Scheduled');
     return { error: 'Already Scheduled' };
   }
+}
+
+async function generateQueueNumber() {
+  // get list of
+  // Redis keep track of people interviewed
+  const currentQueueNumber = await client.hget('recruit', 'queueNumber');
+  client.hset('recruit', 'queueNumber', currentQueueNumber + 1);
+  return currentQueueNumber;
+}
+
+async function getQueueTime(student) {
+  return Users.findOne({ where: { userid: student }});
 }
 
 async function getUserFromLine(student) {
@@ -35,7 +53,7 @@ async function deleteUserFromLine(student) {
   console.log(result);
 }
 
-async function userAlreadyScheduledCheck(userid) {
+async function checkUserAlreadyScheduled(userid) {
   // Dynamic username + useridchecking?
   var res = await Users.findOne({ 
     attributes: ['userid'],
@@ -48,7 +66,7 @@ async function userAlreadyScheduledCheck(userid) {
     var string = JSON.stringify(res);
     var objectValue = JSON.parse(string);
   
-    if (objectValue['email'] === email) {
+    if (objectValue['userid'] === userid) {
       return true;
     } else {
       return false;
