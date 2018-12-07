@@ -1,9 +1,11 @@
 const { completeUserInterview,
   initRecuiting,
   getRedisData,
-  getAllUsers 
+  getAllUsers,
+  getUserFromLineByQueueID,
+  getNextInLineQueueNumber
 } = require('../services/RecruiterService');
-
+const moment = require('moment');
 
 exports.getRedisInfo = async(req, res) => {
   var data = await getRedisData();
@@ -12,7 +14,9 @@ exports.getRedisInfo = async(req, res) => {
 
 exports.initializeRecruiting = async(req, res) => {
   var data = await initRecuiting('temp');
-  res.status(200).send(data);
+  var date = new Date();
+  var current_hour = date.getDate;
+  res.status(200).send(current_hour);
 }
 
 exports.getAllUsersPostgres = async(req, res) => {
@@ -22,5 +26,13 @@ exports.getAllUsersPostgres = async(req, res) => {
 
 exports.endUserInterview = async(req, res) => {
   await completeUserInterview(req.body);
+  console.log('Ended Interview');
   res.status(200).send('Ended Interview');
+}
+
+exports.getNextUserInLineByQueueID = async(req, res) => {
+  const queueid = await getNextInLineQueueNumber();
+  const user = await getUserFromLineByQueueID(queueid);
+  console.log('Got user:',user.userid);
+  res.status(200).send(user);
 }

@@ -16,5 +16,7 @@ module.exports = function(app) {
 
   app.post('/endinterview', Recruiter.endUserInterview);
 
+  app.get('/nextuserinline', Recruiter.getNextUserInLineByQueueID);
+
   // app.post('/upper', Simple.returnUpper);
 }
