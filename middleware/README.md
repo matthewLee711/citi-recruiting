@@ -1,5 +1,20 @@
+# Steps
 
-`docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres`
+## Setting up Postgres
+
+`docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5434:5434 -d postgres`
+
+`docker exec -it some-postgres psql -U postgres`
+
+`CREATE DATABASE recruit;`
+
+`ctrl + p + q` 
+
+`docker cp user.sql some-postgres:/tmp/user.sql`
+
+`docker exec -it some-postgres psql -U postgres -d recruit -f /tmp/user.sql`
+
+## Setting up redis
 `docker run --name some-redis -p 6379:6379 -d redis`
 
 Scenario:
