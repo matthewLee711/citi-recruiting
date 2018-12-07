@@ -28,6 +28,12 @@ export default class SettingsScreen extends React.Component {
             style={styles.welcomeImage}
           />
         </View>
+
+        <View style={{marginHorizontal: 50,alignItems:'center'}}>
+          <Text style={{fontSize:30, fontWeight:'bold',}}>Resume Match</Text>
+          <Text>Let us match you to a platform at Citi!</Text>
+          <Text>Just take a picture of your resume to learn more.</Text>
+        </View>
   
         <Button
           icon={{
@@ -50,17 +56,10 @@ export default class SettingsScreen extends React.Component {
           }}
         />
 
-
-      <View style={{marginHorizontal: 50,alignItems:'center'}}>
-      <Text style={{fontSize:30, fontWeight:'bold',}}>Resume Match</Text>
-      <Text>Let us match you to a platform at Citi!</Text>
-      <Text>Just take a picture of your resume to learn more.</Text>
       </View>
-      
-    </View>
-  );
+    );
+  }
 }
-
 
 		
 			 
