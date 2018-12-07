@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
 
@@ -15,6 +15,9 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={{fontSize:20}}>
+          Come chat with us at the Citi booth! 
+        </Text>
 
         <Button
           icon={{
@@ -29,27 +32,13 @@ export default class LinksScreen extends React.Component {
             height: 75,
             borderColor: "transparent",
             borderWidth: 0,
-            borderRadius: 5
-          }}
-        />
-
-       <Button
-          icon={{
-            name: 'timer',
-            size: 15,
-            color: '#EF1C24'
-          }}
-          title='Reserve Spot for Later'
-          buttonStyle={{
-            backgroundColor: "#1B2351",
-            width: 270,
-            height: 75,
-            borderColor: "transparent",
-            borderWidth: 0,
             borderRadius: 5,
             marginTop: 50
           }}
         />
+
+       
+
       </View> 
     );
   }
