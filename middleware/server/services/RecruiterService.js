@@ -14,7 +14,9 @@ async function getUserAccount(email) {
 async function initRecuiting(data) {
   await clearDatabases();
   initDatabases();
-  // setRecruitingInterval(data.startTime, data.endTime);
+  if(data != null) {
+    setRecruitingInterval(data.totalTime);
+  }
 }
 
 async function clearDatabases() {
@@ -50,9 +52,11 @@ async function getRedisData() {
   return data;
 }
 
-function setRecruitingInterval(startTime, endTime) {
+function setRecruitingInterval(totalTime) {
   // calculate time based on start and endTime
   // set totalTime in redis
+  console.log(totalTime);
+  client.hset('recruit', 'totalTime', parseInt(totalTime));
 }
 
 async function addSomeUsers() {

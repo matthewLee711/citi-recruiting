@@ -28,7 +28,6 @@ export default class Home extends Component {
   }
 
   getRedisInfo() {
-    // localhost:3001/redisinfo
     console.log('Getting Redis Info');
     axios.get(`http://localhost:3001/redisinfo`)
       .then(res => {
@@ -38,7 +37,6 @@ export default class Home extends Component {
   }
 
   getAllUsers() {
-    // http://localhost:3001/allusers
     axios.get(`http://localhost:3001/allusers`)
       .then(res => {
         const allusers = res.data;
@@ -49,7 +47,6 @@ export default class Home extends Component {
 
   // NEED TO CALCULATE INTERVIEW TIME
   endInterview() {
-    // http://localhost:3001/endinterview
     this.getNextUserByQueueID();
     axios.post(`http://localhost:3001/endinterview`, {
       userid: this.state.currentRecruitee.userid,
@@ -61,9 +58,10 @@ export default class Home extends Component {
   }
 
   initRecruiting() {
-    // http://localhost:3001/initrecruiting
     console.log('Init Recruiting');
-    axios.get(`http://localhost:3001/initrecruiting`)
+    axios.post(`http://localhost:3001/initrecruiting`, {
+      totalTime: 40
+    })
       .then(res => {
         const resetTime = res.data;
         this.setState({ resetTime });
@@ -71,8 +69,6 @@ export default class Home extends Component {
   }
 
   getNextUserByQueueID() {
-    // http://localhost:3000/getuser
-    // /userbyqueueid
     axios.get(`http://localhost:3001/nextuserinline`)
       .then(res => {
         const currentRecruitee = res.data;
@@ -85,7 +81,7 @@ export default class Home extends Component {
   // ###############RECRUITEE APIS########################
   addUserInLine() {
     axios.post(`http://localhost:3001/adduser`, {
-      userid: 'John4'
+      userid: 'John2'
     })
     .then(res => {
       console.log(res);

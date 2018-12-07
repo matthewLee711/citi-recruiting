@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   app.get('/redisinfo', Recruiter.getRedisInfo);
 
-  app.get('/initrecruiting', Recruiter.initializeRecruiting);
+  app.post('/initrecruiting', Recruiter.initializeRecruiting);
 
   app.get('/allusers', Recruiter.getAllUsersPostgres);
 

@@ -13,7 +13,7 @@ exports.getRedisInfo = async(req, res) => {
 }
 
 exports.initializeRecruiting = async(req, res) => {
-  var data = await initRecuiting('temp');
+  var data = await initRecuiting(req.body);
   var date = new Date();
   var current_hour = date.getDate;
   res.status(200).send(current_hour);
