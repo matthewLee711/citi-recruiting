@@ -14,6 +14,15 @@ export default class Stopwatch extends Component {
     debugger: false
   };
   
+  componentDidMount() {
+    axios.get(`http://localhost:3001/nextuserinline`)
+      .then(res => {
+        const currentRecruitee = res.data;
+        console.log(currentRecruitee);
+        this.setState({ currentRecruitee });
+        // return currentRecruitee;
+      })
+  }
 
   // 60000 milliseconds = 1 min
   componentWillUnmount() {
@@ -62,6 +71,7 @@ export default class Stopwatch extends Component {
     })
     .then(res => {
       console.log(res);
+      window.location.reload();
     })
   }
 
@@ -86,6 +96,18 @@ export default class Stopwatch extends Component {
         <button className="button-style" onClick={this.handleReset}>
           Reset
         </button>
+        
+        <div>
+          {
+            this.state.currentRecruitee.userid ?
+            <div>
+              <div>Next Recruitee:</div>
+              <div>{this.state.currentRecruitee.userid}</div>
+            </div>
+            :
+            <div>No users currently in queue</div>
+          }
+        </div>
       </div>
     );
   }

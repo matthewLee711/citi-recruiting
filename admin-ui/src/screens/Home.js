@@ -82,10 +82,11 @@ export default class Home extends Component {
   // ###############RECRUITEE APIS########################
   addUserInLine() {
     axios.post(`http://localhost:3001/adduser`, {
-      userid: 'John2'
+      userid: 'John1'
     })
     .then(res => {
       console.log(res);
+      window.location.reload();
     })
   }
 
