@@ -46,17 +46,18 @@ export default class Home extends Component {
   }
 
   // NEED TO CALCULATE INTERVIEW TIME
-  endInterview() {
-    this.getNextUserByQueueID();
-    axios.post(`http://localhost:3001/endinterview`, {
-      userid: this.state.currentRecruitee.userid,
-      interviewTime: 3
-    })
-    .then(res => {
-      console.log(res);
-    })
-  }
-
+  // endInterview() {
+  //   this.getNextUserByQueueID();
+  //   axios.post(`http://localhost:3001/endinterview`, {
+  //     userid: this.state.currentRecruitee.userid,
+  //     interviewTime: 3
+  //   })
+  //   .then(res => {
+  //     console.log(res);
+  //   })
+  // }
+  // LAST THING TO COMPLETE
+  // INPUT FOR TOTAL MINUTES
   initRecruiting() {
     console.log('Init Recruiting');
     axios.post(`http://localhost:3001/initrecruiting`, {
