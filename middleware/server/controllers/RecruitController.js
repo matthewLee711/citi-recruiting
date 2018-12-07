@@ -19,19 +19,9 @@ exports.getUserLineInfo = async(req, res) => {
 // }
 
 exports.addStudentToLine = async(req, res) => {
-  var user = req.body.user;
+  var user = req.body;
   var status = await addUserToLine(user);
-  if(status === true) {
-    res.status(200).send('Success');
-  } else {
-    res.status(500).send('Fail');
-  }
-}
-
-exports.addStudentToLineScheduled = async(req, res) => {
-  var user = req.body.user;
-  var status = await addUserToLine(user);
-  if(status === true) {
+  if(status !== 500) {
     res.status(200).send('Success');
   } else {
     res.status(500).send('Fail');

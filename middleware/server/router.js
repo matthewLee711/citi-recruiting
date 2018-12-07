@@ -12,5 +12,9 @@ module.exports = function(app) {
 
   app.get('/initrecruiting', Recruiter.initializeRecruiting);
 
+  app.get('/allusers', Recruiter.getAllUsersPostgres);
+
+  app.post('/endinterview', Recruiter.endUserInterview);
+
   // app.post('/upper', Simple.returnUpper);
 }

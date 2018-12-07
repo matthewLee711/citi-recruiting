@@ -1,6 +1,8 @@
 const { completeUserInterview,
   initRecuiting,
-  getRedisData } = require('../services/RecruiterService');
+  getRedisData,
+  getAllUsers 
+} = require('../services/RecruiterService');
 
 
 exports.getRedisInfo = async(req, res) => {
@@ -11,4 +13,14 @@ exports.getRedisInfo = async(req, res) => {
 exports.initializeRecruiting = async(req, res) => {
   var data = await initRecuiting('temp');
   res.status(200).send(data);
+}
+
+exports.getAllUsersPostgres = async(req, res) => {
+  var data = await getAllUsers();
+  res.status(200).send(data);
+}
+
+exports.endUserInterview = async(req, res) => {
+  await completeUserInterview(req.body);
+  res.status(200).send('Ended Interview');
 }

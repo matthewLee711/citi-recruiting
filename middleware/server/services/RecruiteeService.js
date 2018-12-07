@@ -14,11 +14,18 @@ client.hdel = util.promisify(client.hdel);
 // }
 
 async function addUserToLine(student) {
+  console.log('adding', student.userid);
   var userScheduled = await checkUserAlreadyScheduled(student.userid);
-  var queueNumber = await generateQueueNumber();
+  var availableTime = await checkAvailableTime();
+  await incrementResultTime();
   // const joinTime = moment().unix();
   // Get queue number
-  if (!userScheduled) {
+  if (!availableTime) {
+    console.log('No available time left');
+    return 500;
+  }
+  if (!userScheduled || !availableTime) {
+    var queueNumber = await generateQueueNumber();
     return Users.create({
       userid: student.userid,
       interviewed: false,
@@ -26,7 +33,7 @@ async function addUserToLine(student) {
     });
   } else {
     console.log('Already Scheduled');
-    return { error: 'Already Scheduled' };
+    return 500;
   }
 }
 
@@ -34,8 +41,26 @@ async function generateQueueNumber() {
   // get list of
   // Redis keep track of people interviewed
   const currentQueueNumber = await client.hget('recruit', 'queueNumber');
-  client.hset('recruit', 'queueNumber', currentQueueNumber + 1);
+  var plusOne = parseInt(currentQueueNumber) + 1;
+  client.hset('recruit', 'queueNumber', plusOne);
   return currentQueueNumber;
+}
+
+async function checkAvailableTime() {
+  const resultTime = await client.hget('recruit', 'resultTime');
+  const totalTime = await client.hget('recruit', 'totalTime');
+  const availableTime = parseInt(totalTime) - parseInt(resultTime);
+  if (availableTime < 5 ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+async function incrementResultTime() {
+  const resultTime = await client.hget('recruit', 'resultTime');
+  var updatedResultTime = parseInt(resultTime) + 5;
+  client.hset('recruit', 'resultTime', updatedResultTime);
 }
 
 async function getQueueTime(student) {
