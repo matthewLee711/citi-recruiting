@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ScrollView, StyleSheet, View, Text } from 'react-native';
+import { Alert, Image, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
 
@@ -26,18 +26,22 @@ export default class LinksScreen extends React.Component {
             style={styles.welcomeImage}
           />
       </View>
-      <Text style={{fontSize:30, fontWeight:'bold', marginBottom:20}}>Digital Line</Text>
+      <Text style={{fontSize:30, fontWeight:'bold', marginBottom:20}}>Resume Match</Text>
         <Text style={{fontSize:20}}>
-          Come chat with us at the Citi booth! 
+          Let us match you to a platform at Citi! 
         </Text>
 
+        <Text style={{fontSize:10}}>
+          Just take a picture of your resume to learn more.
+        </Text>
+  
         <Button
           icon={{
             name: 'person-add',
             size: 15,
             color: '#EF1C24'
           }}
-          title='Reserve Next Available Spot'
+          title='Analyze Resume'
           buttonStyle={{
             backgroundColor: "#1B2351",
             width: 270,
@@ -46,6 +50,9 @@ export default class LinksScreen extends React.Component {
             borderWidth: 0,
             borderRadius: 5,
             marginTop: 50
+          }}
+          onPress={() => {
+            Alert.alert('You tapped the button!');
           }}
         />
 
