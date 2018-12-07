@@ -3,6 +3,7 @@ import React from 'react';
 import { Alert, Image, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Button } from 'react-native-elements';
+import ImagePicker from 'react-native-image-picker';
 
 export default class SettingsScreen extends React.Component {
 
