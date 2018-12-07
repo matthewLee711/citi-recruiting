@@ -1,17 +1,23 @@
 'use strict';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, View, Text } from 'react-native';
-import { ExpoConfigView } from '@expo/samples';
+import { ExpoLinksView } from '@expo/samples';
+import { Button } from 'react-native-elements';
 
+<export default class SettingsScreen extends React.Component {
 
-export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     header: null,
+    // title: 'Digital Line',
+    // headerTintColor: '#ffffff',
+    // headerStyle: {
+    //   backgroundColor: '#4169E1',
+    // }
   };
 
   render() {
-  	return (
-    <View style={styles.container}>
+    return (
+      <View style={styles.container}>
         <View style={styles.welcomeContainer}>
           <Image
             source={
@@ -38,7 +44,11 @@ export default class SettingsScreen extends React.Component {
 
 	}
 
-		
+
+      </View> 
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   welcomeContainer: {
